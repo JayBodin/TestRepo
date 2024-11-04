@@ -1,9 +1,9 @@
 name: Multi-Jobs Workflow
 
-# Triggar workflowet på en schemalagd tid (exempelvis varje dag klockan 12:00 UTC)
 on:
   schedule:
     - cron: "0 12 * * *"
+  workflow_dispatch:  # Lägger till manuell trigger
 
 jobs:
   first-job:
