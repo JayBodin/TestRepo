@@ -1,0 +1,22 @@
+name: Env Variables Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-env-vars:
+    runs-on: ubuntu-latest
+    env:
+      GREETING: "Hello"
+      NAME: "World"
+      
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v2
+
+      - name: Use environment variables
+        run: |
+          echo "$GREETING, $NAME!"
+          echo "This is a custom environment variable: GREETING=$GREETING"
+          echo "This is a GitHub variable: GITHUB_REPOSITORY=$GITHUB_REPOSITORY"
+          echo "This is another GitHub variable: GITHUB_ACTOR=$GITHUB_ACTOR"
